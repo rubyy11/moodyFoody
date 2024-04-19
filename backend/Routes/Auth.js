@@ -136,12 +136,12 @@ router.post('/foodData', async (req, res) => {
         // console.log( JSON.stringify(global.foodData))
         // const userId = req.user.id;
         // await database.listCollections({name:"food_items"}).find({});
-        global.foodData = require('./db')(function call(err, data, CatData) {
-            // console.log(data)
-            if(err) console.log(err);
-            global.foodData = data;
-            global.foodCategory = CatData;
-          })
+        // global.foodData = require('./db')(function call(err, data, CatData) {
+        //     // console.log(data)
+        //     if(err) console.log(err);
+        //     global.foodData = data;
+        //     global.foodCategory = CatData;
+        //   })
         res.send([global.foodData, global.foodCategory])
     } catch (error) {
         console.error(error.message)
