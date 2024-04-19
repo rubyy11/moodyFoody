@@ -14,7 +14,8 @@ export default function Home() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      mode:'no-cors'
 
     });
     response = await response.json()
