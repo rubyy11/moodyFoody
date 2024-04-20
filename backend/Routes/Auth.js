@@ -68,9 +68,8 @@ router.post('/login', [
         if (!user) {
             return res.status(400).json({ success, error: "Try Logging in with correct credentials" });
         }
-
-        // const pwdCompare = await bcrypt.compare(password, user.password); // this return true false.
-        const pwdCompare = password===user.password; // this return true false.
+        const pwdCompare = await bcrypt.compare(password, user.password); // this return true false.
+        //const pwdCompare = password===user.password; // this return true false.
         if (!pwdCompare) {
             return res.status(400).json({ success, error: "Try Logging in with correct credentials" });
         }
@@ -82,8 +81,6 @@ router.post('/login', [
         success = true;
         const authToken = jwt.sign(data, jwtSecret);
         res.json({ success, authToken })
-
-
     } catch (error) {
         console.error(error.message)
         res.send("Server Error")
