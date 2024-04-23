@@ -3,6 +3,7 @@ import Card from '../components/Card'
 // import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import ReactGA from 'react-ga';
 export default function Home() {
   const [foodCat, setFoodCat] = useState([])
   const [foodItems, setFoodItems] = useState([])
@@ -27,7 +28,17 @@ export default function Home() {
 
   useEffect(() => {
     loadFoodItems()
+    ReactGA.pageview(window.location.pathname);
   }, [])
+
+  // const foodDetails=(item : loadFoodItems)=>{
+  //   ReactGA.event({
+  //     category: loadFoodItems.name,
+  //     action: 'Food Details',
+  //     label: item.FoodName
+  //   })
+  // }
+
 
   return (
     <div >

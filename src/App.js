@@ -14,6 +14,10 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import { CartProvider } from './components/ContextReducer';
 import MyOrder from './screens/MyOrder';
+import ReactGA from 'react-ga';
+
+const trackingId='G-NXDW4YBGYG';
+ReactGA.initialize(trackingId);
 
 
 
