@@ -40,9 +40,6 @@ export default function Home() {
   }, [])
 
 
-
-
-
   // const foodDetails=(item : loadFoodItems)=>{
   //   ReactGA.event({
   //     category: loadFoodItems.name,
