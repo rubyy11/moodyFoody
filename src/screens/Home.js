@@ -26,15 +26,29 @@ export default function Home() {
     setFoodCat(response[1])
   }
 
+  // useEffect(() => {
+  //   loadFoodItems()
+  //   ReactGA.pageview(window.location.pathname);
+  //   ReactGA.event({
+  //     category: 'Food',
+  //     action: 'Load',
+  //     label: 'Food items loaded',
+  // });
+  // }, [])
+
   useEffect(() => {
-    loadFoodItems()
-    ReactGA.pageview(window.location.pathname);
-    ReactGA.event({
-      category: 'Food',
-      action: 'Load',
-      label: 'Food items loaded',
-  });
-  }, [])
+    const loadData = async () => {
+      await loadFoodItems();
+      ReactGA.pageview(window.location.pathname);
+      ReactGA.event({
+        category: 'Food',
+        action: 'Load',
+        label: 'Food items loaded',
+      });
+    };
+  
+    loadData();
+  }, []);
 
   // const foodDetails=(item : loadFoodItems)=>{
   //   ReactGA.event({
