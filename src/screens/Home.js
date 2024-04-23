@@ -29,6 +29,11 @@ export default function Home() {
   useEffect(() => {
     loadFoodItems()
     ReactGA.pageview(window.location.pathname);
+    ReactGA.event({
+      category: 'Food',
+      action: 'Load',
+      label: 'Food items loaded',
+  });
   }, [])
 
   // const foodDetails=(item : loadFoodItems)=>{

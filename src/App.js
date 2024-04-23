@@ -17,7 +17,7 @@ import MyOrder from './screens/MyOrder';
 import ReactGA from 'react-ga';
 
 const trackingId='G-NXDW4YBGYG';
-ReactGA.initialize(trackingId);
+ReactGA.initialize(trackingId)
 
 
 
