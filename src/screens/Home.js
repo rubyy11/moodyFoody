@@ -30,7 +30,6 @@ export default function Home() {
     loadFoodItems()
   }, [])
 
-  ReactGA.pageview(window.location.pathname + window.location.search);
 
 
   // const foodDetails=(item : loadFoodItems)=>{
