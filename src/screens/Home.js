@@ -9,7 +9,7 @@ export default function Home() {
   const [foodItems, setFoodItems] = useState([])
   const [search, setSearch] = useState('')
 
-  //ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Page View" });
+  
 
   const loadFoodItems = async () => {
     let response = await fetch(`${process.env.REACT_APP_API_END_POINT}/api/auth/foodData`, {
@@ -30,7 +30,9 @@ export default function Home() {
   }
 
   useEffect(() => {
-    loadFoodItems()
+    loadFoodItems();
+    ReactGA.send({ hitType: "pageview", page: "/", title: "Page View" });
+
   }, [])
 
 
