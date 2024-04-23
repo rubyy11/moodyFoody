@@ -18,6 +18,7 @@ import ReactGA from 'react-ga4';
 
 const trackingId='G-Z3YPXD94QK';
 ReactGA.initialize(trackingId)
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 
 
