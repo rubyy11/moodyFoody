@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar';
+import ReactGA from 'react-ga4';
 export default function Signup() {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", geolocation: "" })
   let [address, setAddress] = useState("");
@@ -36,6 +37,15 @@ export default function Signup() {
   }
 
   const handleSubmit = async (e) => {
+    // google analytics when submit event
+    ReactGA.event({
+      category: "signup",
+      action: 'Click',
+      label: 'signup',   
+    });
+
+
+
     e.preventDefault();
     const response = await fetch(`${process.env.REACT_APP_API_END_POINT}/api/auth/createuser`, {
       // credentials: 'include',

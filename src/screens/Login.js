@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar';
+import ReactGA from 'react-ga4';
 import { useNavigate, Link } from 'react-router-dom'
 export default function Login() {
   const [credentials, setCredentials] = useState({ email: "", password: "" })
   let navigate = useNavigate()
   console.log(process.env.REACT_APP_API_END_POINT,"dlkfmsdf");
   const handleSubmit = async (e) => {
+    ReactGA.event({
+      category: "login",
+      action: 'Click',
+      label: 'login',   
+    });
     e.preventDefault();
     const response = await fetch(`${process.env.REACT_APP_API_END_POINT}/api/auth/login`, {
       // credentials: 'include',
