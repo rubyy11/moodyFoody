@@ -38,11 +38,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     // google analytics when submit event
-    ReactGA.event({
-      category: "signup",
-      action: 'Click',
-      label: 'signup',   
-    });
+    
 
 
 
@@ -63,6 +59,13 @@ export default function Signup() {
       //save the auth toke to local storage and redirect
       localStorage.setItem('token', json.authToken)
       navigate("/login")
+      // google analytics when login event
+      ReactGA.event({
+        
+        action: 'SignUp',
+        category: "User",
+        label: 'User signed up',   
+      });
 
     }
     else {

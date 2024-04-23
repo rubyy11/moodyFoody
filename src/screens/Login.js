@@ -7,11 +7,7 @@ export default function Login() {
   let navigate = useNavigate()
   console.log(process.env.REACT_APP_API_END_POINT,"dlkfmsdf");
   const handleSubmit = async (e) => {
-    ReactGA.event({
-      category: "login",
-      action: 'Click',
-      label: 'login',   
-    });
+    
     e.preventDefault();
     const response = await fetch(`${process.env.REACT_APP_API_END_POINT}/api/auth/login`, {
       // credentials: 'include',
@@ -30,6 +26,13 @@ export default function Login() {
       localStorage.setItem('userEmail', credentials.email)
       localStorage.setItem('token', json.authToken)
       navigate("/");
+      // update google analytics..
+
+      ReactGA.event({
+        action: 'Login',
+        category: 'User',
+        label: 'User logged in'
+      });
 
     }
     else {
