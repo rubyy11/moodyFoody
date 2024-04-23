@@ -1,5 +1,6 @@
 import React from 'react'
 import{useState} from 'react'
+import ReactGA from 'react-ga4'
 
 
 import Delete from '@mui/icons-material/Delete'
@@ -61,6 +62,11 @@ export default function Cart() {
       console.log("JSON RESPONSE:::::", response.status)
       if (response.status === 200) {
         dispatch({ type: "DROP" })
+        ReactGA.event({
+          action: 'Checkout',
+          category: 'Checkout',
+          label: 'User clicked Checkout button'
+        });
       }
     }
   }

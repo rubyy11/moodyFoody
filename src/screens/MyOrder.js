@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import ReactGA from 'react-ga4';
 
 export default function MyOrder() {
 
@@ -33,7 +34,13 @@ export default function MyOrder() {
     }
 
     useEffect(() => {
-        fetchMyOrder()
+        ReactGA.event({
+            action: 'View Order',
+            category: 'Order',
+            label: 'User viewed their order data'
+        });
+        
+        fetchMyOrder();
     }, [])
 
     return (
