@@ -31,8 +31,12 @@ export default function Home() {
 
   useEffect(() => {
     loadFoodItems();
-    ReactGA.send({ hitType: "pageview", page: "/", title: "Page View" });
-
+    //ReactGA.send({ hitType: "pageview", page: "/", title: "Page View" });
+    ReactGA.event({
+      category: 'Page',
+      action: 'View',
+      label: 'Home Page Loaded'
+    });
   }, [])
 
 
