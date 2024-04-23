@@ -8,6 +8,9 @@ export default function Home() {
   const [foodCat, setFoodCat] = useState([])
   const [foodItems, setFoodItems] = useState([])
   const [search, setSearch] = useState('')
+
+  ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Custom Title" });
+  
   const loadFoodItems = async () => {
     let response = await fetch(`${process.env.REACT_APP_API_END_POINT}/api/auth/foodData`, {
       // credentials: 'include',
@@ -29,6 +32,8 @@ export default function Home() {
   useEffect(() => {
     loadFoodItems()
   }, [])
+
+
 
 
 

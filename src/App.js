@@ -16,7 +16,7 @@ import { CartProvider } from './components/ContextReducer';
 import MyOrder from './screens/MyOrder';
 import ReactGA from 'react-ga4';
 
-const trackingId='G-NXDW4YBGYG';
+const trackingId='G-Z3YPXD94QK';
 ReactGA.initialize(trackingId)
 
 
